@@ -2,23 +2,36 @@ const express = require("express");
 
 const router = express.Router();
 
-const products = [];
+let products = [];
 
 router.get("/", (req, res) => {
-    res.send("Main route accessed!");
+    const response = { success: true, message: "", params: {products}}
+    res.json(response);
 });
 
 router.post("/product", (req, res) => {
-    console.log(req.body.params)
-    res.send("New product added!");
+    const newProduct = {idProduct: products.length + 1, ...req.body.params};
+    products.push(newProduct);
+
+    const response = {success: true, message: "", params: {}};
+    res.json(response);
 })
 
 router.put("/product/:productId", (req, res) => {
-    res.send(`Updated the product ${req.params.productId}!`);
+    const idProduct = parseInt(req.params.productId);
+    const updatedProduct = req.body.params;
+    products = products.map(product => product.idProduct == idProduct ? {idProduct, ...updatedProduct} : product );
+    
+    const response = {success: true, message: "", params: {}};
+    res.json(response);
 })
 
 router.delete("/product/:productId", (req, res) => {
-    res.send(`Deleted the product ${req.params.productId}`);
+    const idProductToBeDeleted = parseInt(req.params.productId);
+    products = products.filter(product => product.idProduct !== idProductToBeDeleted);
+    
+    const response = {success: true, message: "", params: {}};
+    res.json(response);
 })
 
 module.exports = router;
