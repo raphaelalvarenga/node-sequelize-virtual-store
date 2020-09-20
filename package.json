@@ -1,0 +1,7 @@
+{
+  "name": "node-sequelize-virtual-store",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Raphael Alvarenga <raphaelalvarenga2@gmail.com>",
+  "license": "MIT"
+}
