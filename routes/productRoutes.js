@@ -52,20 +52,33 @@ router.post("/product", (req, res) => {
 })
 
 router.put("/product/:productId", (req, res) => {
-    const idProduct = parseInt(req.params.productId);
-    const updatedProduct = req.body.params;
-    products = products.map(product => product.idProduct == idProduct ? {idProduct, ...updatedProduct} : product );
+
+    Product
+        .update(req.body.params, {where: {id: parseInt(req.params.productId)}})
+        .then(result => {
+            const response = {success: true, message: "", params: {}};
+            res.json(response);
+        })
+        .catch(error => {
+            const response = {success: false, message: error.errors[0].message, params: {}};
+            res.json(response);
+        })
     
-    const response = {success: true, message: "", params: {}};
-    res.json(response);
 })
 
 router.delete("/product/:productId", (req, res) => {
     const idProductToBeDeleted = parseInt(req.params.productId);
-    products = products.filter(product => product.idProduct !== idProductToBeDeleted);
     
-    const response = {success: true, message: "", params: {}};
-    res.json(response);
+    Product
+        .destroy({where: {id: idProductToBeDeleted}})
+        .then(result => {
+            const response = {success: true, message: "", params: {}};
+            res.json(response);
+        })
+        .catch(error => {
+            const response = {success: false, message: error.errors[0].message, params: {}};
+            res.json(response);
+        })
 })
 
 module.exports = router;
