@@ -5,6 +5,10 @@
     font-family: Arial;
 }
 
+body {
+    background-color: rgb(230, 234, 255);
+}
+
 #navbar {
     display: flex;
     justify-content: space-between;
@@ -38,4 +42,58 @@
 
 #logout {
     padding: 0 25px;
+}
+
+main {
+    max-width: 1200px;
+    margin-top: 30px;
+}
+
+.card-outside {
+    width: 250px;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.card-outside:hover {
+    box-shadow: 2px 2px 15px 2px rgb(200, 200, 200);
+}
+
+.card {
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-bottom: 30px;
+    background-color: rgb(255, 255, 255);
+}
+
+.card-title {
+    color: rgb(71, 96, 204);
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.divider {
+    border: 0.5px solid rgba(71, 96, 204, 0.5);
+}
+
+.card-subtitle {
+    color: rgb(150, 150, 150);
+    margin: 5px 0 10px 0;
+}
+
+.card-image img {
+    width: 100%;
+}
+
+.card-price {
+    font-size: 35px;
+    color: rgb(71, 96, 204);
+    padding: 20px 0;
+}
+
+.card-footer {
+    margin: 15px 0;
 }
