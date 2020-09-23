@@ -46,7 +46,13 @@ body {
 
 main {
     max-width: 1200px;
+    margin: auto;
     margin-top: 30px;
+}
+
+.card-group {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .card-outside {
@@ -65,6 +71,9 @@ main {
     padding: 0 10px;
     margin-bottom: 30px;
     background-color: rgb(255, 255, 255);
+    min-height: 484px;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-title {
@@ -79,9 +88,13 @@ main {
     border: 0.5px solid rgba(71, 96, 204, 0.5);
 }
 
-.card-subtitle {
+.card-description {
     color: rgb(150, 150, 150);
     margin: 5px 0 10px 0;
+}
+
+.card-image {
+    flex: 1;
 }
 
 .card-image img {
