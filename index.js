@@ -11,8 +11,8 @@ app.use(productRoutes);
 
 app.use(express.static(path.join("public")));
 
-app.use("/add-file", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "add-file.html"));
+app.use("/add-product", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "add-product.html"));
 })
 
 app.use("/", (req, res) => {
