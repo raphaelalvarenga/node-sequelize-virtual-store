@@ -20,7 +20,18 @@
         </nav>
     </header>
 
-    <main></main>
+    <main>
+        <form action="/product" method="POST" id = "form-add-product">
+            <div><input name = "name" class = "ipt-form-control" type="text" placeholder="Product"></div>
+            <div><input name = "description" class = "ipt-form-control" type="text" placeholder="Description"></div>
+            <div><input name = "price" class = "ipt-form-control" type="text" placeholder="Price"></div>
+            <div><input name = "imageUrl" class = "ipt-form-control" type="text" placeholder="Image Url"></div>
+            <!-- <div><input id = "ipt-insert-file" type="file"></div> -->
+            <div>
+                <button type="submit" id = "btn-save">Save</button>
+            </div>
+        </form>
+    </main>
 
     <footer></footer>
 </body>

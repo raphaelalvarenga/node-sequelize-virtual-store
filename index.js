@@ -7,6 +7,8 @@ const app = express();
 
 app.use(bodyParser.json());
 
+app.use(express.urlencoded({extended: true}))
+
 app.use(productRoutes);
 
 app.use(express.static(path.join("public")));

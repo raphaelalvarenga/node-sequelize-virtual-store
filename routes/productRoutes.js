@@ -3,8 +3,6 @@ const Product = require("../models/productModel");
 
 const router = express.Router();
 
-let products = [];
-
 router.get("/products", (req, res) => {
     Product
         .findAll()
@@ -36,18 +34,18 @@ router.get("/products/:productId", (req, res) => {
 })
 
 router.post("/product", (req, res) => {
-    const newProduct = {...req.body.params};
+    const newProduct = {...req.body};
     
     Product
         .create(newProduct)
         .then(result => {
             const response = {success: true, message: "", params: {}};
-            res.json(response);
+            res.redirect("/");
         })
         .catch(error => {
             const errorMessage = error.errors[0].message;
             const response = {success: false, message: errorMessage, params: {}}
-            res.json(response);
+            res.redirect("/");
         });
 })
 
