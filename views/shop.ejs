@@ -1,52 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Shop</title>
-</head>
-<body>
-    <header>
-        <nav id = "navbar">
-            <ul class = "list-navbar">
-                <li><a id = "logo" href = "#">LOGO</a></li>
-                <li><a class = "anchors-navbar" href = "http://localhost:3000/">Shop</a></li>
-                <li><a class = "anchors-navbar" href = "http://localhost:3000/add-product">Add</a></li>
-            </ul>
-            <div>
-                <a id = "logout" class = "anchors-navbar" href="#">Logout</a>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <% if (response.params.products.length > 0) { %>
-            <div class="card-group">
-                <% for (let product of response.params.products) { %>
-                <div class="card-outside">
-                    <div class="card">
-                        <div class="card-title"><%= product.name %></div>
-                        <div class="divider"></div>
-                        <div class="card-description"><%= product.description %></div>
-                        <div class="card-image">
-                            <img src="<%= product.imageUrl === '' ? 'images/shopping-cart.png' : product.imageUrl %>" alt="">
-                        </div>
-                        <div class="card-price">$ <%= product.price %>.00</div>
-                        <div class="divider"></div>
-                        <div class="card-footer">
-                            <div><a href="#">Favoritar</a></div>
-                            <div><a href="#">WhatsApp</a></div>
-                            <div><a href="#">Facebook</a></div>
-                        </div>
+<%- include("includes/metadata.ejs") %>
+<main>
+    <% if (response.params.products.length > 0) { %>
+        <div class="card-group">
+            <% for (let product of response.params.products) { %>
+            <div class="card-outside">
+                <div class="card">
+                    <div class="card-title"><%= product.name %></div>
+                    <div class="divider"></div>
+                    <div class="card-description"><%= product.description %></div>
+                    <div class="card-image">
+                        <img src="<%= product.imageUrl === '' ? 'images/shopping-cart.png' : product.imageUrl %>" alt="">
+                    </div>
+                    <div class="card-price">$ <%= product.price %>.00</div>
+                    <div class="divider"></div>
+                    <div class="card-footer">
+                        <div><a href="#">Favoritar</a></div>
+                        <div><a href="#">WhatsApp</a></div>
+                        <div><a href="#">Facebook</a></div>
                     </div>
                 </div>
-                <% } %>
-        <% } else { %>
-            <h1>No products found</h1>
-        <% } %>
-    </main>
-
-    <footer></footer>
-</body>
-</html>
+            </div>
+            <% } %>
+    <% } else { %>
+        <h1>No products found</h1>
+    <% } %>
+<%- include("includes/footer.ejs") %>

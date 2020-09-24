@@ -19,13 +19,12 @@ app.use(productRoutes);
 
 app.use(express.static(path.join("public")));
 
-app.use("/add-product", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "add-product.html"));
-})
-
-// app.use("/", (req, res) => {
-//     // res.sendFile(path.join(__dirname, "views", "shop.html"));
-//     res.render("shop")
+// app.use("/add-product", (req, res) => {
+//     res.sendFile(path.join(__dirname, "views", "add-product.html"));
 // })
+
+app.use((req, res) => {
+    res.render("404");
+});
 
 app.listen(3000, () => console.log("Porta 3000 funcionando..."));

@@ -35,6 +35,10 @@ router.get("/products/:productId", (req, res) => {
         });
 })
 
+router.get("/add-product", (req, res) => {
+    res.render("add-product");
+})
+
 router.post("/product", (req, res) => {
     const newProduct = {...req.body};
     
