@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Add Product</title>
-</head>
-<body>
-    <header>
-        <nav id = "navbar">
-            <ul class = "list-navbar">
-                <li><a id = "logo" href = "#">LOGO</a></li>
-                <li><a class = "anchors-navbar" href = "http://localhost:3000/">Shop</a></li>
-                <li><a class = "anchors-navbar" href = "http://localhost:3000/add-product">Add</a></li>
-            </ul>
-            <div>
-                <a id = "logout" class = "anchors-navbar" href="#">Logout</a>
-            </div>
-        </nav>
-    </header>
-
+<%- include("includes/metadata.ejs", {title: "Add Product"}) %>
     <main>
         <form action="/product" method="POST" id = "form-add-product">
             <div><input name = "name" class = "ipt-form-control" type="text" placeholder="Product"></div>
@@ -32,7 +11,4 @@
             </div>
         </form>
     </main>
-
-    <footer></footer>
-</body>
-</html>
+<%- include("includes/footer.ejs") %>
