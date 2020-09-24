@@ -98,7 +98,8 @@ main {
 }
 
 .card-image img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 250px;
 }
 
 .card-price {

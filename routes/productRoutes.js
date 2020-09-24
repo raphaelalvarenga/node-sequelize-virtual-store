@@ -3,13 +3,15 @@ const Product = require("../models/productModel");
 
 const router = express.Router();
 
-router.get("/products", (req, res) => {
+router.get("/", (req, res) => {
     Product
         .findAll()
         .then(result => {
             const products = result.map(product => product.dataValues);
             const response = { success: true, message: "", params: {products}}
-            res.json(response);
+            console.log(response.params);
+            // res.json(response);
+            res.render("shop", {response});
         })
         .catch(error => {
             const response = { success: false, message: error.errors[0].message, params: {}}
