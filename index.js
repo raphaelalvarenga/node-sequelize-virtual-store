@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const productRoutes = require("./routes/productRoutes");
 const path = require("path");
+const multer = require("multer");
+const { fileStorage, fileFilter } = require("./util/filesDefinitions");
 
 const app = express();
 
@@ -13,7 +15,9 @@ app.set("views", "views");
 
 app.use(bodyParser.json());
 
-app.use(express.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({extended: false}))
+
+app.use(multer({storage: fileStorage, fileFilter}).single("image"));
 
 app.use(productRoutes);
 
