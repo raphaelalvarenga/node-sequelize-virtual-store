@@ -41,22 +41,21 @@ router.get("/add-product", (req, res) => {
 
 router.post("/product", (req, res) => {
     const { name, description, price } = req.body;
-    const file = req.file;
+    const imageUrl = req.file.path.replace("public/", "");
     
-    const newProduct = {name, description, price, file};
-    console.log(newProduct);
+    const newProduct = {name, description, price, imageUrl};
 
-    // Product
-    //     .create(newProduct)
-    //     .then(result => {
-    //         const response = {success: true, message: "", params: {}};
-    //         res.redirect("/");
-    //     })
-    //     .catch(error => {
-    //         const errorMessage = error.errors[0].message;
-    //         const response = {success: false, message: errorMessage, params: {}}
-    //         res.redirect("/");
-    //     });
+    Product
+        .create(newProduct)
+        .then(result => {
+            const response = {success: true, message: "", params: {}};
+            res.redirect("/");
+        })
+        .catch(error => {
+            const errorMessage = error.errors[0].message;
+            const response = {success: false, message: errorMessage, params: {}}
+            res.redirect("/");
+        });
 })
 
 router.put("/product/:productId", (req, res) => {
