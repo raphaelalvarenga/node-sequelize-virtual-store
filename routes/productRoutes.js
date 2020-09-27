@@ -41,8 +41,8 @@ router.get("/add-product", (req, res) => {
 
 router.post("/product", (req, res) => {
     const { name, description, price } = req.body;
-    const imageUrl = req.file.path.replace("public/", "");
-    
+    const imageUrl = req.file ? req.file.path.replace("public/", "") : "images/shopping-cart.png";
+
     const newProduct = {name, description, price, imageUrl};
 
     Product
